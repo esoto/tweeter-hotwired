@@ -1,6 +1,11 @@
 <h1>Editing tweet</h1>
 
-<%= render "form", tweet: @tweet %>
+<%= turbo_frame_tag dom_id(@tweet) do %>
+  <div class="my-10 p-6 max-w-sm mx-auto bg-gray-100 rounded-xl shadow-lg flex items-center space-x-4">
+    <%= render "form", tweet: @tweet %>
+    <%= link_to "Cancel", @tweet, class: 'btn px-4 py-1 text-sm text-red-600 font-semibold rounded-full border border-red-200 hover:text-white hover:bg-red-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2' %>
+  </div>
+<% end %>
 
 <br>
 
