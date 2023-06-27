@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :employees
   resources :addresses do
     collection do
       get :states

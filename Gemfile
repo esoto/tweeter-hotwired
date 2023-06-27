@@ -70,3 +70,9 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "city-state", "~> 0.1.0", git: 'https://github.com/thecodecrate/city-state'
 
 gem "requestjs-rails", "~> 0.0.10"
+
+gem "faker", "~> 3.2"
+
+gem "pagy", "~> 6.0"
+
+gem "pg_search", "~> 2.3"
