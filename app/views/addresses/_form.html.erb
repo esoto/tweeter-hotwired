@@ -1,0 +1,43 @@
+<%= form_with(model: address, class: "contents") do |form| %>
+  <% if address.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
+
+      <ul>
+        <% address.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div data-controller="select" data-select-url-value="<%= states_addresses_path %>" data-select-param-value="country">
+    <div class="my-5">
+      <%= form.label :country %>
+      <%= form.select(
+        :country,
+        CS.countries.invert,
+        { prompt: "Select a country" },
+        {
+          class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
+          data: { action: "change->select#change" }
+        }
+      ) %>
+    </div>
+  
+
+    <div class="my-5">
+      <%= form.label :state %>
+      <%= form.select(
+        :state,
+        [],
+        { prompt: "Select a State" },
+        { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", data: { select_target: 'select' } }
+      ) %>
+    </div>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

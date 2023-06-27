@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :addresses do
+    collection do
+      get :states
+    end
+  end
   resources :posts
   resources :tweets do
     resource :likes, only: [:create, :destroy]
