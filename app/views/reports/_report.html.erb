@@ -1,0 +1,17 @@
+<%= tag.div id: dom_id(report), data: { chart_target: "report", date: report.date, value: report.value } do %>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Date:</strong>
+    <%= report.date %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Value:</strong>
+    <%= report.value %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this report", report, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this report', edit_report_path(report), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+<% end %>
